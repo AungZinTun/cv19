@@ -1,31 +1,31 @@
 
 <template>
-  <div class="hello">
-    <h1 v-for="thread in threads">
-       {{ thread.title }}
-      <p v-for="postID in thread.posts"> 
-        {{ posts[postID].userID}}
-         {{posts[postID].text}}
-        </p>   
-    </h1>
-    
+  <div class="container">
+    <div  class="thread-list">
+            <ThreadList  :threads="threads" />
+          </div>
   </div>
-
 </template>
 
 <script>
-import datasource from '@/data.json'
+import datasource from "@/data.json";
+import ThreadList from "./ThreadList"
 
 export default {
-  name: 'home',
-  data () {
+  components: {
+    ThreadList
+  },
+ 
+  name: "home",
+  data() {
     return {
-      threads: datasource.threads,
+      threads: Object.values(datasource.threads),
       posts: datasource.posts,
-      users : datasource.users
-    }
-  }
-}
+      users: datasource.users
+    };
+  },
+ 
+};
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
