@@ -14,7 +14,7 @@
 
                   <div class="activity">
                       <p class="replies-count">
-                          1 reply
+                          {{postCount}}Replies
                       </p>
 
                   </div>
@@ -35,6 +35,9 @@ export default {
         }
         },
     computed: {
+    postCount(){
+        return Object.keys(this.thread.posts).length -1
+    },
     user() {
       return datasource.users[this.thread.userId]
     }
