@@ -4,7 +4,6 @@
               <div class="thread">
                   <div>
                       <p>
-                        
                           <router-link :to=" { name : 'ThreadShow' , params :{id : thread['.key']} } "> {{thread.title}} </router-link>
                       </p>
                       <p class="text-faded text-xsmall">
